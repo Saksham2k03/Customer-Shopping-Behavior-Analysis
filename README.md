@@ -1,9 +1,5 @@
 # 🛍️ Customer Shopping Behavior Analysis — SQL (MySQL) + Python + Power BI
 
-An end-to-end **data analytics portfolio project** built to analyze retail customer shopping trends and deliver actionable business insights across **customer segments, purchase behavior, revenue, and loyalty**.
-This project focuses on the full analyst workflow — data cleaning, SQL-based business analysis, and professional dashboard design.
----
-
 ## ℹ️ About This Project
 
 This is an end-to-end data analytics project that walks through the complete lifecycle of a real-world analyst deliverable — from raw data to a polished business dashboard. It was built as a hands-on way to practice the core analyst toolkit (Python, SQL, and Power BI) on a retail customer dataset, while adapting the original tutorial's database layer from PostgreSQL to **MySQL**.
