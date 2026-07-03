@@ -2,6 +2,13 @@
 
 An end-to-end **data analytics portfolio project** built to analyze retail customer shopping trends and deliver actionable business insights across **customer segments, purchase behavior, revenue, and loyalty**.
 This project focuses on the full analyst workflow — data cleaning, SQL-based business analysis, and professional dashboard design.
+---
+
+## ℹ️ About This Project
+
+This is an end-to-end data analytics project that walks through the complete lifecycle of a real-world analyst deliverable — from raw data to a polished business dashboard. It was built as a hands-on way to practice the core analyst toolkit (Python, SQL, and Power BI) on a retail customer dataset, while adapting the original tutorial's database layer from PostgreSQL to **MySQL**.
+
+The project is intended as a **portfolio piece** to demonstrate practical, job-ready skills in data cleaning, business-oriented SQL querying, and dashboard storytelling for non-technical stakeholders.
 
 ---
 
@@ -25,7 +32,7 @@ This project addresses key business questions related to **customer segmentation
 
 ## 📂 Dataset Overview
 
-The dataset represents **customer-level retail transaction data** and includes:
+The dataset contains **3,900 transactions across 18 columns**, with 37 missing values in the Review Rating column (imputed using the median rating per product category). It represents **customer-level retail transaction data** and includes:
 
 - Customer demographics (age, gender, location)
 - Purchase details (category, item, purchase amount)
@@ -70,40 +77,48 @@ The project follows a three-stage analytical pipeline, each serving a specific p
 ### 2️⃣ Business Analysis — MySQL
 
 **Purpose**
-Answer specific business questions using SQL against the cleaned dataset loaded into MySQL.
+Answer 10 structured business questions using SQL against the cleaned dataset loaded into MySQL.
 
-**Key Analysis**
-- Revenue and purchase count by customer segment
-- Repeat vs. first-time customer behavior
-- Category and seasonal purchase trends
-- Impact of discounts/promo codes on purchase amount
-- Top customers by lifetime spend
+**Key Findings**
+
+| # | Question | Result |
+|---|---|---|
+| 1 | Revenue by gender | Male customers generated **$157,890** vs. **$75,191** from female customers — more than 2x |
+| 2 | High-spending discount users | **839 customers** used a discount and still spent above the average purchase amount |
+| 3 | Top 5 products by rating | Gloves (3.86), Sandals (3.84), Boots (3.82), Hat (3.80), Skirt (3.78) |
+| 4 | Standard vs. Express shipping | Express orders average **$60.48** vs. **$58.46** for Standard — a ~3.5% premium |
+| 5 | Subscribers vs. non-subscribers | Non-subscribers (2,847 customers) generate **$170,436** in total revenue vs. **$62,645** from subscribers (1,053) — despite similar avg. spend (~$59–60) |
+| 6 | Most discount-dependent products | Hat (50.0%), Sneakers (49.7%), Coat (49.1%), Sweater (48.2%), Pants (47.4%) of purchases involved a discount |
+| 7 | Customer segmentation | **3,116 Loyal**, **701 Returning**, **83 New** customers — the base is heavily repeat-purchase driven |
+| 8 | Top 3 products per category | Clothing: Blouse, Pants, Shirt · Accessories: Jewelry, Sunglasses, Belt · Footwear: Sandals, Shoes, Sneakers · Outerwear: Jacket, Coat |
+| 9 | Repeat buyers (>5 purchases) & subscription | **958** repeat buyers are subscribed vs. **2,518** who aren't — high-frequency buyers aren't converting to subscriptions |
+| 10 | Revenue by age group | Young Adult ($62,143) > Middle-aged ($59,197) > Adult ($55,978) > Senior ($55,763) — fairly evenly spread, slight skew toward younger shoppers |
 
 **File:** `customer_behavior_sql_queries.sql`
 
 **Business Value**
-- Surfaces the specific numbers and segments that drive the dashboard's insights
+- Quantifies exactly where revenue, loyalty, and discount dependency concentrate — the numbers behind every dashboard visual
 
 ---
 
 ### 3️⃣ Visualization — Power BI
 
 **Purpose**
-Present the analysis as an interactive dashboard for stakeholders.
+Present the analysis as an interactive "Customer Behavior Dashboard" for stakeholders.
 
 **Key Metrics Displayed**
-- Total Revenue / Total Customers / Total Orders
-- Average Purchase Value
-- Revenue by Category and Season
-- Customer segments (new vs. returning, subscribed vs. not)
-- Top locations and payment methods by revenue
+- **3.9K** total customers, **$59.76** average purchase amount, **3.75** average review rating
+- Subscription split: **27% subscribed vs. 73% not subscribed**
+- Revenue and sales by category (Clothing leads, followed by Accessories, Footwear, Outerwear)
+- Revenue and sales by age group (Young Adult segment leads)
+- Interactive filters/slicers: Subscription Status, Gender, Category, Shipping Type
 
 **File:** `customer_behavior_dashboard.pbix`
 
 **Business Value**
-- Enables quick, visual, executive-level decision-making on customer and revenue trends
+- Lets stakeholders slice revenue and customer behavior by segment in real time, without needing to write SQL
 
-*![Dashboard](dashboard_screenshot.png)*
+* ![Dashboard](dashboard_screenshot.png)*
 
 ---
 
@@ -117,15 +132,15 @@ Present the analysis as an interactive dashboard for stakeholders.
 
 ---
 
-## 📈 Business Impact
+## 📈 Business Impact & Recommendations
 
-This project enables stakeholders to:
+Based on the analysis, the following data-backed recommendations were identified:
 
-- Track customer and revenue performance at a glance
-- Identify the highest-value customer segments
-- Understand which categories and seasons drive sales
-- Evaluate the effectiveness of discounts and promotions
-- Make informed, data-driven marketing and retention decisions
+- **Boost subscriptions** — Non-subscribers already generate ~73% of revenue ($170K of $233K total); converting even a fraction of them, especially the 2,518 repeat buyers not yet subscribed, represents a clear untapped revenue lever
+- **Build loyalty programs** — With 3,116 of ~3,900 customers already "Loyal," reward repeat buyers to protect this base and convert the 701 "Returning" customers further up the loyalty curve
+- **Review discount policy** — Products like Hats and Sneakers see ~50% of purchases discounted; balance the sales lift against margin erosion on these SKUs
+- **Double down on top-rated products** — Gloves, Sandals, Boots, Hat, and Skirt (all rated 3.78+) are strong candidates for featured placement and campaigns
+- **Target high-revenue segments** — Male customers (2x female revenue) and the Young Adult age group are the highest-revenue segments; prioritize marketing spend accordingly, while exploring why female and Senior segments under-index
 
 ---
 
